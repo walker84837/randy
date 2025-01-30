@@ -1,0 +1,17 @@
+[package]
+name = "randy"
+version = "0.1.0"
+edition = "2021"
+
+[profile.dev]
+debug = false
+
+[profile.release]
+strip = true
+lto = true
+overflow-checks = true
+panic = "abort"
+
+[dependencies]
+fastrand = "2.3.0"
+iced = "0.13.1"
