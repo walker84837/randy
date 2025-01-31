@@ -1,6 +1,7 @@
 use iced::{
+    font::{Family, Stretch, Style, Weight},
     widget::{button, column, row, text, text_input},
-    Alignment, Element, Theme,
+    Alignment, Element, Font, Theme,
 };
 
 fn main() -> iced::Result {
@@ -38,6 +39,7 @@ impl RandyGen {
                 let min_val = self.min.parse().unwrap_or(0);
                 let max_val = self.max.parse().unwrap_or(0);
 
+                // Swap min and max if min > max
                 let (lower, upper) = if min_val <= max_val {
                     (min_val, max_val)
                 } else {
@@ -93,9 +95,16 @@ impl RandyGen {
             .on_press(Message::GeneratePressed)
             .padding(10);
 
+        let number_style = Font {
+            family: Family::SansSerif,
+            weight: Weight::Bold,
+            stretch: Stretch::Normal,
+            style: Style::Normal,
+        };
+
         // Create the random number or placeholder text display
         let random_number_display = match self.random_number {
-            Some(n) => text(n.to_string()).size(72),
+            Some(n) => text(n.to_string()).size(72).font(number_style),
             None => text("Click Generate").size(32),
         };
 
