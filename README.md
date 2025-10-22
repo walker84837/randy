@@ -20,4 +20,4 @@ For developers, Randy uses [iced](https://docs.rs/iced) and [fastrand](https://d
 
 ## License
 
-This project is licensed under the [Apache-2.0](LICENSE) license.
+This project is licensed under the [0BSD](LICENSE) license.
