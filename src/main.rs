@@ -7,7 +7,8 @@ use iced::{
 fn main() -> iced::Result {
     let theme = |_s: &RandyGen| Theme::CatppuccinMocha;
 
-    iced::application("Randy", RandyGen::update, RandyGen::view)
+    iced::application(RandyGen::default, RandyGen::update, RandyGen::view)
+        .title("Randy")
         .theme(theme)
         .centered()
         .run()
